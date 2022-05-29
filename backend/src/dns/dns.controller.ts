@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post, Query } from '@nestjs/common';
 import { DnsService } from './dns.service';
 import { DnsQueryDto } from './dto/dns.dto';
 
@@ -7,8 +7,13 @@ export class DnsController {
   constructor(private dnsService: DnsService) {}
 
   @Get('the-biggest-queries')
-  async executeDnsQuery() {
-    return this.dnsService.getTheBiggestQueries();
+  async getTheBiggestQueries(@Query('limit') limit: number) {
+    return this.dnsService.getTheBiggestQueries(limit);
+  }
+
+  @Get('last-queries')
+  async getLastQueries(@Query('limit') limit: number) {
+    return this.dnsService.getLastQueries(limit);
   }
 
   @Post('execute-query')

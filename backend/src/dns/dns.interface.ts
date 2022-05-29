@@ -1,1 +1,1 @@
-export type DnsQueryStatus = 'SENT' | 'WITH_RESPONSE';
+export type DnsQueryStatus = 'SENT' | 'WITH_RESPONSE' | 'ERROR';

@@ -24,7 +24,7 @@ export class DnsQuery {
   @Prop({ required: true })
   status: DnsQueryStatus;
 
-  @Prop({ default: new Date() })
+  @Prop({ default: () => new Date() })
   createdAt: Date;
 }
 
